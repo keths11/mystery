@@ -1597,9 +1597,11 @@ h1 {
   }
 
   /* Page 4 — vertical stack */
+  /* Page 4 — vertical stack, photo on top, all content visible */
   .campaign-page {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(300px, 52dvh) 1fr;
+    /* Photo row: fixed compact height; content row: fills rest */
+    grid-template-rows: min(36dvh, 240px) 1fr;
   }
 
   .campaign-right {
@@ -1624,69 +1626,94 @@ h1 {
   .campaign-left {
     border-right: 0;
     border-top: 1px solid rgba(210, 180, 100, 0.15);
-    padding: 18px 20px 28px;
+    /* Use all remaining height; scroll if anything still overflows */
+    padding: 12px 18px 16px;
     justify-content: flex-start;
     gap: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .campaign-left::before {
-    top: 6%; height: 88%;
+    top: 4%; height: 92%;
   }
 
   .camp-eyebrow {
-    margin-bottom: 2px;
+    margin-bottom: 1px;
+    font-size: 0.48rem;
   }
 
-  .camp-name {
-    font-size: clamp(2.4rem, 11vw, 4rem);
-    margin-bottom: 8px;
+  .camp-role-small {
+    font-size: 0.56rem;
   }
 
   .camp-role-display {
-    font-size: clamp(1.1rem, 5.5vw, 1.8rem);
-    margin-bottom: 8px;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    margin: 2px 0 8px;
     -webkit-text-stroke-width: 1px;
   }
 
+  .camp-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 4px;
+    line-height: 0.9;
+  }
+
   .camp-tagline {
-    font-size: 0.86rem;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    font-size: 0.82rem;
+    margin-bottom: 6px;
+  }
+
+  .camp-rule {
+    margin-bottom: 6px;
   }
 
   .camp-promises {
-    margin-bottom: 10px;
-    gap: 7px;
+    margin-bottom: 6px;
+    gap: 2px;
   }
 
   .camp-promises li {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
+    padding: 4px 0 4px 10px;
   }
 
   .camp-roles {
-    margin-bottom: 12px;
-    padding-top: 10px;
+    margin-bottom: 8px;
+    gap: 5px;
   }
 
   .camp-roles span {
-    font-size: 0.58rem;
+    font-size: 0.54rem;
+    padding: 4px 9px;
   }
 
   .camp-cta {
     max-width: 100%;
-    padding: 14px 18px 14px 22px;
+    padding: 13px 16px 13px 20px;
     border-radius: 999px;
+    /* Always visible — push it to the bottom if space allows */
+    margin-top: auto;
+    flex-shrink: 0;
   }
 
   .cta-main {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     letter-spacing: 0.1em;
   }
 
+  .cta-sub {
+    display: none;
+  }
+
   .cta-check {
-    width: 34px;
-    height: 34px;
-    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .camp-sig {
+    display: none;
   }
 }
 
@@ -1721,20 +1748,16 @@ h1 {
   }
 
   .camp-name {
-    font-size: clamp(2rem, 12vw, 3.2rem);
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
   }
 
   .camp-role-display {
-    font-size: clamp(1rem, 6vw, 1.5rem);
+    font-size: clamp(0.9rem, 5.5vw, 1.3rem);
     -webkit-text-stroke-width: 1px;
   }
 
   .cta-main {
-    font-size: 0.84rem;
-  }
-
-  .cta-sub {
-    display: none;
+    font-size: 0.82rem;
   }
 }
 
