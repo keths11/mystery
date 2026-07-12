@@ -48,6 +48,10 @@ function setActivePanel(nextPanel) {
     panel.setAttribute('aria-hidden', String(!isActive));
   });
 
+  if (nextPanel !== page3) {
+    page3.classList.remove('name-revealed');
+  }
+
   if (nextPanel !== page4) {
     resetPosterMotion();
   }
@@ -141,6 +145,7 @@ function triggerFinalReveal() {
     }, 220);
 
     window.setTimeout(() => {
+      page3.classList.add('name-revealed');
       nameRevealStage.classList.add('visible');
     }, 3200);
 
