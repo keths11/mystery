@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Pokémon Reveal Campaign | Kethan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Exo+2:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="image" href="assets/sill.jpg" />
+    <link rel="preload" as="image" href="assets/candidate.jpg" />
+    <link rel="preload" as="image" href="assets/background1.jpg" />
+  </head>
+  <body>
+    <div class="global-fx" aria-hidden="true">
+      <div class="scanline"></div>
+      <div class="vignette"></div>
+      <div class="floating-orb orb-a"></div>
+      <div class="floating-orb orb-b"></div>
+    </div>
+
+    <main class="experience" id="experienceRoot">
+      <section class="panel panel-active" id="page1" aria-labelledby="chooseTitle">
+        <div class="arena-bg" aria-hidden="true"></div>
+        <div class="content-block">
+          <p class="eyebrow">CHOOSE</p>
+          <h1 id="chooseTitle">CHOOSE YOUR POKEMON</h1>
+          <p class="subtext">Pick a Pokeball to begin your reveal.</p>
+
+          <div class="pokeball-row" role="list" aria-label="Choose your pokemon">
+            <button class="pokeball-button" data-ball="one" role="listitem" aria-label="Pokeball 1">
+              <span class="pokeball pokeball-standard" aria-hidden="true"></span>
+              <span class="ball-label">Pokeball</span>
+            </button>
+            <button class="pokeball-button" data-ball="two" role="listitem" aria-label="Pokeball 2">
+              <span class="pokeball pokeball-standard" aria-hidden="true"></span>
+              <span class="ball-label">Pokeball</span>
+            </button>
+            <button class="pokeball-button" data-ball="three" role="listitem" aria-label="Pokeball 3">
+              <span class="pokeball pokeball-standard" aria-hidden="true"></span>
+              <span class="ball-label">Pokeball</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="page2" aria-labelledby="mysteryTitle" aria-hidden="true">
+        <div class="guess-bg" aria-hidden="true"></div>
+        <div class="battle-flash-lights" aria-hidden="true"></div>
+        <div class="content-block page2-content">
+          <h2 id="mysteryTitle" class="pulse-title">WHO'S THAT POKEMON?</h2>
+
+          <div class="silhouette-stage">
+            <img
+              id="silhouetteImage"
+              class="silhouette-image"
+              src="assets/sill.jpg"
+              alt="Silhouette placeholder"
+              decoding="async"
+            />
+          </div>
+
+          <button id="revealButton" class="reveal-button" type="button">REVEAL</button>
+        </div>
+      </section>
+
+      <section class="panel" id="page3" aria-labelledby="nameTitle" aria-hidden="true">
+        <div class="content-block reveal-content">
+          <h2 class="its-text" id="itsText" aria-label="Its reveal sequence">
+            <span class="its-part">ITS....</span>
+            <span class="its-part">ITS....</span>
+            <span class="its-part">ITS.....</span>
+          </h2>
+
+          <div id="nameRevealStage" class="name-reveal-stage" aria-live="polite">
+            <div class="flash-burst" aria-hidden="true"></div>
+            <img
+              id="revealImage"
+              class="reveal-image"
+              src="assets/candidate.jpg"
+              alt="Kethan portrait"
+              decoding="async"
+            />
+
+            <h3 id="nameTitle" class="name-title">KETHAN</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="page4" aria-labelledby="finalTitle" aria-hidden="true">
+        <div class="campaign-page" id="posterPage">
+
+          <!-- Left column -->
+          <div class="campaign-left">
+            <p class="camp-eyebrow">Student Council Election &nbsp;·&nbsp; 2026</p>
+            <p class="camp-role-small">Candidate for</p>
+            <p class="camp-role-display">Unit Designee</p>
+
+            <h2 id="finalTitle" class="camp-name">Kethan H</h2>
+            <p class="camp-tagline"><em>Organised. Fair. Creative. Connected.</em></p>
+
+            <div class="camp-rule" aria-hidden="true"><span>◆</span></div>
+
+            <ul class="camp-promises">
+              <li><span class="promise-num">01</span><span><strong>Real events</strong>, not just promises</span></li>
+              <li><span class="promise-num">02</span><span>A council that <strong>actually listens</strong></span></li>
+              <li><span class="promise-num">03</span><span><strong>NASA opportunities</strong>, brought home to campus</span></li>
+            </ul>
+
+            <div class="camp-roles">
+              <span>Student Council</span>
+              <span>Event Lead</span>
+              <span>Content &amp; Design</span>
+            </div>
+
+            <button class="camp-cta" id="posterCta" type="button">
+              <span class="cta-text">
+                <span class="cta-main">Vote Kethan H</span>
+                <span class="cta-sub">Unit Designee</span>
+              </span>
+              <span class="cta-check">&#10003;</span>
+            </button>
+
+            <p class="camp-sig">Architecture · Design · Leadership</p>
+          </div>
+
+          <!-- Right column: candidate photo -->
+          <div class="campaign-right">
+            <div class="camp-photo-wrap">
+              <img src="assets/candidate.jpg" alt="Kethan H" class="camp-photo" loading="lazy" decoding="async" />
+              <div class="camp-photo-badge">Unit Designee</div>
+            </div>
+            <div class="camp-corner camp-corner--tr" aria-hidden="true"></div>
+            <div class="camp-corner camp-corner--br" aria-hidden="true"></div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <div id="transitionOverlay" class="transition-overlay" aria-hidden="true"></div>
+
+    <!--
+      Optional audio placeholders.
+      Add files inside assets/sounds and remove data-disabled="true" to enable.
+    -->
+    <audio id="sfxBallOpen" src="assets/sounds/ball-open.mp3" preload="auto" data-disabled="true"></audio>
+    <audio id="sfxEncounter" src="assets/sounds/encounter.mp3" preload="auto" data-disabled="true"></audio>
+    <audio id="sfxReveal" src="assets/sounds/reveal.mp3" preload="auto" data-disabled="true"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
