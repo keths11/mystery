@@ -686,6 +686,16 @@ h1 {
   position: relative;
   --poster-shift-x: 0px;
   --poster-shift-y: 0px;
+  isolation: isolate;
+}
+
+/* Full-width photo underlay — lets the photo show behind the translucent left panel */
+.campaign-page .camp-photo-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
 }
 
 /* ── LEFT PANEL ── */
@@ -696,11 +706,14 @@ h1 {
   padding: clamp(24px, 4vw, 52px) clamp(32px, 6.5vw, 92px);
   gap: 0;
   position: relative;
+  z-index: 1;
   overflow: hidden;
-  border-right: 1px solid rgba(180, 150, 70, 0.1);
+  border-right: 1px solid rgba(180, 150, 70, 0.18);
   background:
-    radial-gradient(ellipse at 0% 50%, rgba(24, 52, 14, 0.6), transparent 60%),
-    linear-gradient(175deg, #121c0d 0%, #0a1507 100%);
+    radial-gradient(ellipse at 0% 50%, rgba(10, 28, 6, 0.55), transparent 65%),
+    linear-gradient(175deg, rgba(14, 24, 8, 0.72) 0%, rgba(8, 16, 5, 0.78) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 /* gold accent bar */
@@ -983,24 +996,21 @@ h1 {
 /* ── RIGHT PANEL ── */
 .campaign-right {
   position: relative;
-  overflow: hidden;
+  z-index: 1;
+  overflow: visible;
   transform: translate3d(var(--poster-shift-x), var(--poster-shift-y), 0);
   transition: transform 0.26s ease-out;
   will-change: transform;
-}
-
-.camp-photo-wrap {
-  position: absolute;
-  inset: 0;
+  pointer-events: none;
 }
 
 .camp-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 6%;
+  object-position: center 68%;
   display: block;
-  filter: brightness(1) contrast(1.08) saturate(0.92);
+  filter: brightness(1.06) contrast(1.04) saturate(0.9);
   transform: scale(1.04);
   animation: campaignPhotoDrift 9s ease-in-out infinite;
   will-change: transform;
@@ -1013,8 +1023,8 @@ h1 {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to top, rgba(8, 16, 5, 0.62) 0%, rgba(8, 16, 5, 0.08) 36%, transparent 55%),
-    linear-gradient(to left, transparent 60%, rgba(8, 16, 5, 0.3) 100%);
+    linear-gradient(to top, rgba(8, 16, 5, 0.45) 0%, rgba(8, 16, 5, 0.04) 28%, transparent 46%),
+    linear-gradient(to left, transparent 65%, rgba(8, 16, 5, 0.18) 100%);
   pointer-events: none;
 }
 
@@ -1055,7 +1065,7 @@ h1 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10, 20, 7, 0.72) 0%, transparent 14%);
+  background: linear-gradient(to right, rgba(10, 20, 7, 0.55) 0%, transparent 12%);
   z-index: 2;
   pointer-events: none;
 }
@@ -1589,7 +1599,7 @@ h1 {
   /* Page 4 — vertical stack */
   .campaign-page {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(260px, 44dvh) 1fr;
+    grid-template-rows: minmax(300px, 52dvh) 1fr;
   }
 
   .campaign-right {
@@ -1598,13 +1608,17 @@ h1 {
   }
 
   .campaign-right::before {
-    background: linear-gradient(to bottom, rgba(10, 20, 7, 0.5) 0%, transparent 32%);
+    background: linear-gradient(to bottom, rgba(10, 20, 7, 0.35) 0%, transparent 26%);
   }
 
   .camp-photo-wrap::before {
     background:
-      linear-gradient(to top, rgba(8, 16, 5, 0.42) 0%, rgba(8, 16, 5, 0.06) 38%, transparent 60%),
-      linear-gradient(to left, transparent 66%, rgba(8, 16, 5, 0.2) 100%);
+      linear-gradient(to top, rgba(8, 16, 5, 0.3) 0%, transparent 40%),
+      linear-gradient(to left, transparent 72%, rgba(8, 16, 5, 0.12) 100%);
+  }
+
+  .camp-photo {
+    object-position: center 62%;
   }
 
   .campaign-left {
