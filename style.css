@@ -504,8 +504,9 @@ h1 {
   justify-items: center;
   position: relative;
   isolation: isolate;
-  width: min(920px, 96vw);
+  width: min(920px, calc(100vw - 30px));
   margin-top: clamp(8px, 2.5vh, 30px);
+  margin-inline: auto;
 }
 
 .reveal-content::before,
@@ -999,7 +1000,7 @@ h1 {
   object-fit: cover;
   object-position: center 6%;
   display: block;
-  filter: brightness(0.88) contrast(1.1) saturate(0.85);
+  filter: brightness(1) contrast(1.08) saturate(0.92);
   transform: scale(1.04);
   animation: campaignPhotoDrift 9s ease-in-out infinite;
   will-change: transform;
@@ -1012,8 +1013,8 @@ h1 {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to top, rgba(8, 16, 5, 0.9) 0%, rgba(8, 16, 5, 0.12) 36%, transparent 55%),
-    linear-gradient(to left, transparent 58%, rgba(8, 16, 5, 0.48) 100%);
+    linear-gradient(to top, rgba(8, 16, 5, 0.62) 0%, rgba(8, 16, 5, 0.08) 36%, transparent 55%),
+    linear-gradient(to left, transparent 60%, rgba(8, 16, 5, 0.3) 100%);
   pointer-events: none;
 }
 
@@ -1054,7 +1055,7 @@ h1 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #0a1407 0%, transparent 15%);
+  background: linear-gradient(to right, rgba(10, 20, 7, 0.72) 0%, transparent 14%);
   z-index: 2;
   pointer-events: none;
 }
@@ -1568,11 +1569,12 @@ h1 {
   }
 
   .name-reveal-stage {
-    width: 98vw;
+    width: min(420px, calc(100vw - 28px));
     max-height: none;
     padding: 14px 12px;
     gap: 10px;
     border-radius: 16px;
+    margin-inline: auto;
   }
 
   .reveal-image {
@@ -1587,7 +1589,7 @@ h1 {
   /* Page 4 — vertical stack */
   .campaign-page {
     grid-template-columns: 1fr;
-    grid-template-rows: 48vw 1fr;
+    grid-template-rows: minmax(260px, 44dvh) 1fr;
   }
 
   .campaign-right {
@@ -1596,7 +1598,13 @@ h1 {
   }
 
   .campaign-right::before {
-    background: linear-gradient(to bottom, #0a1407 0%, transparent 28%);
+    background: linear-gradient(to bottom, rgba(10, 20, 7, 0.5) 0%, transparent 32%);
+  }
+
+  .camp-photo-wrap::before {
+    background:
+      linear-gradient(to top, rgba(8, 16, 5, 0.42) 0%, rgba(8, 16, 5, 0.06) 38%, transparent 60%),
+      linear-gradient(to left, transparent 66%, rgba(8, 16, 5, 0.2) 100%);
   }
 
   .campaign-left {
