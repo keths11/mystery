@@ -169,7 +169,9 @@ function syncRevealImages() {
   // silhouette (page 2) and reveal (page 3) use different source images intentionally
 }
 
-silhouetteImage.addEventListener('load', syncRevealImages);
+if (silhouetteImage) {
+  silhouetteImage.addEventListener('load', syncRevealImages);
+}
 window.addEventListener('DOMContentLoaded', syncRevealImages);
 
 if (posterCta) {
