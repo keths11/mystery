@@ -50,6 +50,9 @@ function setActivePanel(nextPanel) {
 
   if (nextPanel !== page3) {
     page3.classList.remove('name-revealed');
+    page3.classList.remove('pokeball-sequence');
+    page3.classList.remove('pokeball-opening');
+    nameRevealStage.classList.remove('visible');
   }
 
   if (nextPanel !== page4) {
@@ -84,8 +87,8 @@ function runTransition(nextPanel, sfxKey, variant = 'default') {
   playSfx(sfx[sfxKey]);
 
   const isFinalPokeball = variant === 'pokeball-final';
-  const switchDelay = isFinalPokeball ? 210 : 120;
-  const clearDelay = isFinalPokeball ? 520 : 260;
+  const switchDelay = isFinalPokeball ? 150 : 85;
+  const clearDelay = isFinalPokeball ? 360 : 180;
 
   overlay.classList.remove('pokeball-final');
   if (isFinalPokeball) {
@@ -120,7 +123,7 @@ function handleBallSelect(button) {
   // Simulate ball shake and opening flash before moving to the mystery panel.
   window.setTimeout(() => {
     runTransition(page2, 'encounter');
-  }, 280);
+  }, 140);
 }
 
 function triggerFinalReveal() {
@@ -129,6 +132,10 @@ function triggerFinalReveal() {
   }
 
   hasTriggeredReveal = true;
+  page3.classList.remove('name-revealed');
+  page3.classList.remove('pokeball-sequence');
+  page3.classList.remove('pokeball-opening');
+  nameRevealStage.classList.remove('visible');
   itsText.classList.remove('show');
   itsParts.forEach((part) => part.classList.remove('visible'));
 
@@ -140,22 +147,30 @@ function triggerFinalReveal() {
       itsParts.forEach((part, index) => {
         window.setTimeout(() => {
           part.classList.add('visible');
-        }, index * 900);
+        }, index * 1100);
       });
     }, 220);
 
     window.setTimeout(() => {
+      page3.classList.add('pokeball-sequence');
+    }, 1320);
+
+    window.setTimeout(() => {
+      page3.classList.add('pokeball-opening');
+    }, 3600);
+
+    window.setTimeout(() => {
       page3.classList.add('name-revealed');
       nameRevealStage.classList.add('visible');
-    }, 3200);
+    }, 4100);
 
     window.setTimeout(() => {
       if (!hasStartedNameReveal) {
         hasStartedNameReveal = true;
         runTransition(page4, 'encounter', 'pokeball-final');
       }
-    }, 5800);
-  }, 260);
+    }, 5900);
+  }, 140);
 }
 
 ballButtons.forEach((button) => {

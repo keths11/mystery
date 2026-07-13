@@ -12,13 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Exo+2:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Cinzel:wght@600;700;800&family=Exo+2:wght@400;500;700&family=Fredoka+One&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="preload" as="image" href="assets/sill.jpg" />
     <link rel="preload" as="image" href="assets/candidate.jpg" />
-    <link rel="preload" as="image" href="assets/background1.jpg" />
+    <link rel="preload" as="image" href="assets/whosthat2.jpg" />
   </head>
   <body>
     <div class="global-fx" aria-hidden="true">
@@ -57,13 +57,15 @@
         <div class="guess-bg" aria-hidden="true"></div>
         <div class="battle-flash-lights" aria-hidden="true"></div>
         <div class="content-block page2-content">
-          <h2 id="mysteryTitle" class="pulse-title" aria-label="Who's That Pokemon?">
-            <span class="wtp-word">WHO'S</span>
-            <span class="wtp-word">THAT</span>
-            <span class="wtp-word">POKÉMON?</span>
-          </h2>
-
-          <button id="revealButton" class="reveal-button" type="button">REVEAL</button>
+          <div class="page2-sill-space" aria-hidden="true"></div>
+          <div class="page2-text-col">
+            <h2 id="mysteryTitle" class="pulse-title" aria-label="Who's That Pokemon?">
+              <span class="wtp-word">WHO'S</span>
+              <span class="wtp-word">THAT</span>
+              <span class="wtp-word">POKÉMON?</span>
+            </h2>
+            <button id="revealButton" class="reveal-button" type="button">REVEAL</button>
+          </div>
         </div>
       </section>
 
@@ -74,6 +76,18 @@
             <span class="its-part">ITS....</span>
             <span class="its-part">ITS.....</span>
           </h2>
+
+          <div id="revealPokeballStage" class="reveal-pokeball-stage" aria-hidden="true">
+            <span class="pokeball-ring ring-a" aria-hidden="true"></span>
+            <span class="pokeball-ring ring-b" aria-hidden="true"></span>
+            <div class="reveal-pokeball" role="presentation">
+              <span class="ball-half ball-top"></span>
+              <span class="ball-half ball-bottom"></span>
+              <span class="ball-band"></span>
+              <span class="ball-core"></span>
+            </div>
+            <div class="pokeball-open-flash" aria-hidden="true"></div>
+          </div>
 
           <div id="nameRevealStage" class="name-reveal-stage" aria-live="polite">
             <div class="flash-burst" aria-hidden="true"></div>
